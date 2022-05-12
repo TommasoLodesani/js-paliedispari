@@ -1,48 +1,82 @@
 // Pari e Dispari
 
-// L’utente sceglie pari o dispari 
-let sceltaUser = prompt("Scegli tra pari e dispari");
-console.log("hai scelto: " , sceltaUser);
+const myButton = document.getElementById("playBtn");
 
-// inserisce un numero da 1 a 5.
-let numeroUser = parseInt(prompt("Scegli un numero tra 1 e 5"));
-console.log("il tuo numero è: " , numeroUser);
 
-// Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
-let numeroPC = getRandomNumb(1, 5);
-console.log("il numero del pc è: " , numeroPC);
+myButton.addEventListener(`click`,
 
-// Sommiamo i due numeri
-let sommaPuntate = numeroUser + numeroPC;
-console.log(sommaPuntate);
+    function () {
 
-// Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-let resultPariDispari = PariODispari(sommaPuntate);
-console.log(resultPariDispari);
+        // L’utente sceglie pari o dispari 
+        let sceltaUser = document.getElementById("inputP_D").value;
+        console.log("hai scelto: ", sceltaUser);
 
-// Dichiariamo chi ha vinto.
-if(sceltaUser == resultPariDispari){
-    console.log("Hai vinto!");
-} else {
-    console.log("Hai perso");
-}
+        // inserisce un numero da 1 a 5.
+        let numeroUser = document.getElementById("input_number").value;
+        console.log("il tuo numero è: ", numeroUser);
+
+        // Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+        let numeroPC = getRandomNumb(1, 5);
+        document.getElementById("numero_pc").innerHTML = "il computer ha scelto " + numeroPC;
+        console.log("il numero del pc è: ", numeroPC);
+
+        // Sommiamo i due numeri
+        let sommaPuntate = numeroUser + numeroPC;
+        console.log(sommaPuntate);
+
+        // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+        let resultPariDispari = PariODispari(sommaPuntate);
+        console.log(resultPariDispari);
+
+        // Dichiariamo chi ha vinto.
+        if (sceltaUser == resultPariDispari) {
+            document.getElementById("risultato").innerHTML = "Hai vinto!";
+            console.log("Hai vinto!");
+        } else {
+            document.getElementById("risultato").innerHTML = "Hai perso!";
+            console.log("Hai perso");
+        }
+
+
+
+    }
+
+)
+
+const myButtonReset = document.getElementById("rePlayBtn")
+
+
+myButtonReset.addEventListener(`click`,
+
+    function(){
+        document.getElementById("inputP_D").value = " ";
+        document.getElementById("input_number").value = " ";
+        document.getElementById("numero_pc").innerHTML = " ";
+        document.getElementById("risultato").innerHTML = " ";
+        document.getElementById("risultato").innerHTML = " ";
+
+    }
+
+)
+
 
 // funzioni
 
-function getRandomNumb (rangeMin, rangeMax) {
+function getRandomNumb(rangeMin, rangeMax) {
 
-    let result = Math.floor(Math.random() * (rangeMax - rangeMin))  + rangeMin;
+    let result = Math.floor(Math.random() * (rangeMax - rangeMin)) + rangeMin;
 
     return result;
-    
+
 }
 
-function PariODispari (numeroCheck) {
+function PariODispari(numeroCheck) {
 
-    if(numeroCheck % 2 === 0){
-        return "pari";
-    
+    if (numeroCheck % 2 === 0) {
+        return "Pari";
+
     } else {
-        return "dispari";
+        return "Dispari";
     }
 }
+
