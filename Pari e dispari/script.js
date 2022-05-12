@@ -5,14 +5,16 @@ const myButton = document.getElementById("playBtn");
 
 myButton.addEventListener(`click`,
 
+
     function () {
 
         // L’utente sceglie pari o dispari 
-        let sceltaUser = document.getElementById("inputP_D").value;
+        let sceltaUser =  document.getElementById("inputP_D").value;
+        let sceltaUserUpper = sceltaUser.toUpperCase();
         console.log("hai scelto: ", sceltaUser);
 
         // inserisce un numero da 1 a 5.
-        let numeroUser = document.getElementById("input_number").value;
+        let numeroUser = parseInt(document.getElementById("input_number").value); 
         console.log("il tuo numero è: ", numeroUser);
 
         // Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
@@ -26,13 +28,17 @@ myButton.addEventListener(`click`,
 
         // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
         let resultPariDispari = PariODispari(sommaPuntate);
+        let resultPariDispariUpper = resultPariDispari.toUpperCase();
         console.log(resultPariDispari);
 
+
         // Dichiariamo chi ha vinto.
-        if (sceltaUser == resultPariDispari) {
+        if (sceltaUserUpper == resultPariDispariUpper) {
+            debugger;
             document.getElementById("risultato").innerHTML = "Hai vinto!";
             console.log("Hai vinto!");
         } else {
+            debugger;
             document.getElementById("risultato").innerHTML = "Hai perso!";
             console.log("Hai perso");
         }
@@ -49,11 +55,12 @@ const myButtonReset = document.getElementById("rePlayBtn")
 myButtonReset.addEventListener(`click`,
 
     function(){
-        document.getElementById("inputP_D").value = " ";
-        document.getElementById("input_number").value = " ";
-        document.getElementById("numero_pc").innerHTML = " ";
-        document.getElementById("risultato").innerHTML = " ";
-        document.getElementById("risultato").innerHTML = " ";
+        
+        document.getElementById("inputP_D").value = "";
+        document.getElementById("input_number").value = "";
+        document.getElementById("numero_pc").innerHTML = "";
+        document.getElementById("risultato").innerHTML = "";
+        document.getElementById("risultato").innerHTML = "";
 
     }
 
