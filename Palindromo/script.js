@@ -8,6 +8,8 @@ const string = prompt('Enter a string: ');
 
 checkPalindrome(string);
 
+
+
 // Creare una funzione per capire se la parola inserita è palindroma
 function checkPalindrome(string) {
 
@@ -15,19 +17,17 @@ function checkPalindrome(string) {
     let arrayValues = string.split("");
 
     // inverti l'ordine dei valori dell'array
-
     let reverseValueArray = arrayValues.reverse();
 
     // converti array in stringa
-
     let reversedSring = reverseValueArray.join("");
 
     // condizioni
-
-    if (string == reversedSring){
+    if (string == reversedSring) {
         console.log("la parola è Palindroma");
-    } else{
+    } else {
         console.log("la parola non è palindroma");
     }
+
 }
 
